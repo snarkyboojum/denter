@@ -1,0 +1,14 @@
+Denter is a simple little command line identi.ca client written in Perl 6.
+
+You must put a plaintext username and password in .credentials in the
+current directory (currently). I don't expect many people to use this :)
+
+Usage: perl6 dent "Perl 6 can talk HTTP with Basic Auth!"
+
+Denter currently has the following dependencies:
+
+ - HTTP::Client at http://github.com/snarkyboojum/http-client
+   (this is a fork of the original HTTP::Client written by carlins at
+    http://github.com/carlins/http-client).
+
+ - MIME::Base64 at http://github.com/snarkyboojum/Perl6-MIME-Base64

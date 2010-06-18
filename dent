@@ -1,0 +1,21 @@
+#!/usr/bin/perl6
+use v6;
+use HTTP::Client;
+
+my $url         = 'http://identi.ca/api/statuses/update.xml';
+my $client-name = 'denter';
+my $message     = @*ARGS[0] or die "I need a message to post";
+
+my $credentials = slurp('.credentials').chomp;
+my ($username, $password) = $credentials.split(':');
+
+my HTTP::Client $denter .= new(:ua($client-name));
+
+$denter.basic-authorization(:username($username),
+                            :password($password));
+
+say "Denting \"$message\"...";
+my $result = $denter.post( $url, { 'source' => $client-name,
+                                   'status' => $message } );
+
+say "Result of post: $result";
