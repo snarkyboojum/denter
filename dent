@@ -4,7 +4,7 @@ use HTTP::Client;
 
 my $url         = 'http://identi.ca/api/statuses/update.xml';
 my $client-name = 'perl6.denter';
-my $message     = @*ARGS[0] or die "I need a message to post";
+my $message     = @*ARGS[0] // die "I need a message to post";
 
 my $credentials = slurp('.credentials').chomp;
 my ($username, $password) = $credentials.split(':');
